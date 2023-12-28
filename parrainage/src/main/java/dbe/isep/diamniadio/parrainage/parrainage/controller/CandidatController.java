@@ -38,5 +38,4 @@ public class CandidatController {
     public void deleteCandidat(@PathVariable Integer id){
         candidatService.deleteByCandidat(id);
     }
-
 }

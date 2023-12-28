@@ -12,7 +12,8 @@ public class Candidat {
     private Integer id;
     private String nom;
     private String party;
-    @OneToMany(mappedBy = "candidat")
+
+    @OneToMany
     private List<Fiche> fiches;
 
     public Candidat(Integer id, String nom) {
@@ -54,4 +55,6 @@ public class Candidat {
     public List<Fiche> getFiches() {
         return fiches;
     }
+
+
 }

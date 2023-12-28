@@ -15,8 +15,8 @@ public class DelegueController {
 
     @Autowired
     private DelegueRegionalService delegueRegionalService;
+
     @GetMapping
-    @CrossOrigin("http://localhost:4200")
     public List<DelegueRegional> getDelegueRegionals(){
         return  delegueRegionalService.getDelegueRegional();
     }

@@ -1,3 +1,4 @@
+
 package dbe.isep.diamniadio.parrainage.parrainage.Model;
 
 import jakarta.persistence.*;
@@ -83,7 +84,8 @@ public class Parrain {
         return fiche;
     }
 
-    public Parrain(Long id, String nom, String prenom, Integer numElecteur, Long numIdentite, String localite, Date dateSignature) {
+
+    public Parrain(Long id, String nom, String prenom, Integer numElecteur, Long numIdentite, String localite, Date dateSignature, Fiche fiche) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
@@ -91,6 +93,7 @@ public class Parrain {
         this.numIdentite = numIdentite;
         this.localite = localite;
         this.dateSignature = dateSignature;
+        this.fiche = fiche;
     }
 
     public Parrain() {

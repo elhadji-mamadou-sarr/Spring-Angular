@@ -24,7 +24,7 @@ public class CandidatService {
     }
 
     public Candidat addCandidat(Candidat candidat){
-       Optional<Candidat> c = candidatRepository.findById(candidat.getId());
+        Optional<Candidat> c = candidatRepository.findById(candidat.getId());
         if (!c.isPresent()) {
             return candidatRepository.save(candidat);
         }else
@@ -41,9 +41,7 @@ public class CandidatService {
             existant.setNom(candidat.getNom());
             return candidatRepository.save(existant);
         }else
-        throw new RuntimeException("Ce candidat n'existe pas");
+            throw new RuntimeException("Ce candidat n'existe pas");
     }
-
-
 
 }

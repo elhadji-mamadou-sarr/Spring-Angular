@@ -1,8 +1,10 @@
 package dbe.isep.diamniadio.parrainage.parrainage.services;
 
+
+import dbe.isep.diamniadio.parrainage.parrainage.Model.Fiche;
 import dbe.isep.diamniadio.parrainage.parrainage.Model.Parrain;
+import dbe.isep.diamniadio.parrainage.parrainage.repositories.FicheRepository;
 import dbe.isep.diamniadio.parrainage.parrainage.repositories.ParrainRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class ParrainService {
 
     @Autowired
     private ParrainRepository parrainRepository;
+
+    @Autowired
+    private FicheRepository ficheRepository;
 
     public List<Parrain> getParrains(){
         return parrainRepository.findAll();
@@ -47,6 +52,7 @@ public class ParrainService {
         }
         parrainRepository.save(updatedParrain);
     }
+
 
 
 

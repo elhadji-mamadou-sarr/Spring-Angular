@@ -15,8 +15,8 @@ public class RegionController {
 
     @Autowired
     private RegionService regionService;
+
     @GetMapping
-    @CrossOrigin("http://localhost:4200")
     public List<Region> getDelegueRegionals(){
         return  regionService.getRegions();
     }

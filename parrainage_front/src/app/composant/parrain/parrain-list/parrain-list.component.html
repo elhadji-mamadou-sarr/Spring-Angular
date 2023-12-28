@@ -1,0 +1,40 @@
+<div class="container mt-5">
+
+  <div class="d-flex justify-content-between mb-2">
+      <h1>Liste des parrains</h1>
+      <div>
+        <a routerLink="/ajouterParrain" class="btn btn-success pb-1">+Nouveau</a>
+      </div>
+  </div>
+
+  <table class="table table-bordered table-striped  table-hover">
+    <thead>
+      <tr>
+        <th class="p-4">ID</th>
+        <th class="p-4">Nom</th>
+        <th class="p-4">Prénom</th>
+        <th class="p-4">Numéro de la carte d'électeur</th>
+        <th class="p-4">Numéro de la carte d'identité CEDEAO</th>
+        <th class="p-4">Circonscription électorale</th>
+        <th class="p-4">date de Signature</th>
+        <th class="p-4">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let a of parrains">
+        <th scope="row">{{ a.id }}</th>
+        <td class="p-3">{{ a.nom }}</td>
+        <td class="p-3">{{ a.prenom }}</td>
+        <td class="p-3">{{ a.numElecteur }}</td>
+        <td class="p-3">{{ a.numIdentite }}</td>
+        <td class="p-3">{{ a.localite }}</td>
+        <td class="p-3">{{ a.dateSignature }}</td>
+        <td class="p-3 d-flex">
+          <a class="btn btn-primary btn-sm rounded-pill" [routerLink]="['/modifier', a.id]">Modifier</a>&nbsp;
+          <a class="btn btn-danger btn-sm  rounded-pill"  (click)="supprimerParrain(a.id)">Suprimer</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

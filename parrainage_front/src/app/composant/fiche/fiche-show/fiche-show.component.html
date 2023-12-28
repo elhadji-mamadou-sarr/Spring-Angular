@@ -1,0 +1,82 @@
+
+  <div class="container p-4">
+
+
+      <h3 class="text-center alert alert-secondary">PARRAINAGE D'UNE CANDIDATURE A L'ELECTION PRESIDENTIELLE du 24 février 2024</h3>
+
+      <div class="d-flex row p-2">
+
+        <label class="col-md" for="candidat">Prénoms et nom du candidat :</label>
+
+        <span class="col-md"> {{ fiche.candidat?.nom }} </span>
+
+        <label class="col-md" for="delegue">Région ou Representation diplomatique:</label>
+
+        <span class="col-md"> {{ fiche.region?.nom }}</span>
+
+      </div>
+
+      <div class="d-flex row p-2">
+        <label class="col-md" for="delegue">Prénoms et nom du délégué régional :</label>
+        <span class="col-md">{{ fiche.delegueRegional?.nom }} {{ fiche.delegueRegional?.prenom }}</span>
+        <label class="col-md" for="delegue">N° Carte d'électeur :</label>
+        <span class="col-md">{{ fiche.delegueRegional?.numElecteur }}</span>
+      </div>
+
+      <table class="table table-bordered ">
+        <thead>
+          <tr class="table-secondary">
+            <th class="p-3">N°</th>
+            <th class="p-3">Prenom</th>
+            <th class="p-3">Nom</th>
+            <th class="p-3">Numéro de la carte d'électeur</th>
+            <th class="p-3">Numéro de la carte d'identité</th>
+            <th class="p-3">Circonscription électorale</th>
+            <th class="p-3">Signature </th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let parrain of parrains">
+            <th scope="row">{{ parrain.id }}</th>
+            <td class="p-3">{{ parrain.prenom }}</td>
+            <td class="p-3">{{ parrain.nom }}</td>
+            <td class="p-3">{{ parrain.numElecteur }}</td>
+            <td class="p-3">{{ parrain.numIdentite }}</td>
+            <td class="p-3">{{ parrain.localite }}</td>
+            <td class="p-3">{{ parrain.dateSignature }}</td>
+          </tr>
+          <tr *ngIf="!parrains.length">
+            <td colspan="7" class="text-center"><h5>Pas de parrain(s) pour cette fiche</h5></td>
+          </tr>
+
+        </tbody>
+
+      </table>
+
+      <div class="d-flex row g-2 p-2">
+
+        <div class="col-md">
+          <span class="col-md fw-bold" for="delegue">Prénom(s) et nom du Collecteur : </span>
+          <span class="col-md">{{ fiche.delegueRegional?.nom }} {{ fiche.delegueRegional?.prenom }}</span>&nbsp;&nbsp;
+          <label class="col-md" for="delegue"> N° Carte d'électeur :</label>
+          <span class="col-md">{{ fiche.delegueRegional?.numElecteur }}</span>
+        </div>
+
+        <div class="col-md border border-dark">
+          <span class="fw-bold p-3 ">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta possimus minus culpa aliquam ut assumenda, at harum obcaecati veniam, eius placeat ratione sed. Minus eveniet nulla dicta laboriosam, odio quibusdam?
+          </span>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <span class="col-md">Signature</span>
+        <span class="col-md">Fait à {{ fiche.region?.nom }} le .......................</span>
+      </div>
+
+
+
+  </div>
+

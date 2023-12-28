@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+  <h2>Ajouter un Parrain</h2>
+  <form (ngSubmit)="ajouterParrain()" class="row g-3 ">
+
+    <div class="mb-3 col-md-6">
+        <label for="nom" class="form-label">Nom</label>
+        <input name="nom" type="text" class="form-control" id="nom" [(ngModel)]="nouveauParrain.nom" required>
+      </div>
+
+      <div class="mb-3 col-md-6">
+        <label for="prenom" class="form-label">Prénom</label>
+        <input name="prenom" type="text" class="form-control" id="prenom" [(ngModel)]="nouveauParrain.prenom" required>
+      </div>
+
+      <div class="mb-3 col-md-6">
+        <label for="numElecteur" class="form-label">Numéro d'électeur</label>
+        <input name="numElecteur" type="number" class="form-control" id="numElecteur" [(ngModel)]="nouveauParrain.numElecteur" required>
+      </div>
+
+      <div class="mb-3 col-md-6">
+        <label for="numIdentite" class="form-label">Numéro d'identité</label>
+        <input name="numIdentite" type="number" class="form-control" id="numIdentite" [(ngModel)]="nouveauParrain.numIdentite" required>
+      </div>
+
+      <div class="mb-3 col-md-6">
+        <label for="localite" class="form-label">Localité</label>
+        <input name="localite" type="text" class="form-control" id="localite" [(ngModel)]="nouveauParrain.localite" required>
+      </div>
+
+      <div class="mb-3 col-md-6">
+        <label for="dateSignature" class="form-label">Date de Signature</label>
+        <input name="dateSignature" type="date" class="form-control" id="dateSignature" [(ngModel)]="nouveauParrain.dateSignature" required>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+  </form>
+</div>

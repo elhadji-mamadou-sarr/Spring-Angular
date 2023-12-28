@@ -23,7 +23,7 @@ public class Fiche {
     @ManyToOne
     private Collecteur collecteur;
 
-    @OneToMany(mappedBy = "fiche")
+    @OneToMany
     private List<Parrain> parrains;
 
     public Fiche() {
@@ -47,7 +47,6 @@ public class Fiche {
         this.id = id;
     }
 
-
     public Long getNumero() {
         return numero;
     }
@@ -56,13 +55,6 @@ public class Fiche {
         this.numero = numero;
     }
 
-    public Candidat getCandidat() {
-        return candidat;
-    }
-
-    public void setCandidat(Candidat candidat) {
-        this.candidat = candidat;
-    }
 
     public DelegueRegional getDelegueRegional() {
         return delegueRegional;
@@ -88,6 +80,7 @@ public class Fiche {
         this.collecteur = collecteur;
     }
 
+
     public void setParrains(List<Parrain> parrains) {
         this.parrains = parrains;
     }
@@ -96,5 +89,12 @@ public class Fiche {
         return parrains;
     }
 
+    public void setCandidat(Candidat candidat) {
+        this.candidat = candidat;
+    }
+
+    public Candidat getCandidat() {
+        return candidat;
+    }
 
 }

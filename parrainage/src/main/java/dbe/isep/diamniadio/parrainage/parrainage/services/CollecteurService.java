@@ -1,7 +1,6 @@
 package dbe.isep.diamniadio.parrainage.parrainage.services;
 
 import dbe.isep.diamniadio.parrainage.parrainage.Model.Collecteur;
-import dbe.isep.diamniadio.parrainage.parrainage.Model.Parrain;
 import dbe.isep.diamniadio.parrainage.parrainage.repositories.CollecteurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

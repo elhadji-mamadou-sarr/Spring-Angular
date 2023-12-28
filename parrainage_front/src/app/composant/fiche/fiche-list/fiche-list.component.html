@@ -1,0 +1,41 @@
+<div class="container mt-5">
+
+  <div class="d-flex justify-content-between mb-2">
+      <h1>Liste des Fiches</h1>
+      <div>
+        <a routerLink="/ajouterFiche" class="btn btn-success pb-1">+ Nouveau</a>
+      </div>
+  </div>
+
+  <table class="table table-bordered table-striped  table-hover">
+    <thead>
+      <tr>
+        <th class="p-4">#</th>
+        <th class="p-4">Numéro Fiche</th>
+        <th class="p-4">Candidat</th>
+        <th class="p-4">Delegue</th>
+        <th class="p-4">Région</th>
+        <th class="p-4">Collecteur</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr *ngFor="let fiche of fiches">
+        <th scope="row">{{fiche.id}}</th>
+        <td class="p-3">{{fiche.numero}}</td>
+        <td class="p-3">{{fiche.candidat?.nom}}</td>
+        <td class="p-3">{{fiche.delegueRegional?.nom}}</td>
+        <td class="p-3">{{fiche.region?.nom}}</td>
+        <td class="p-3">{{fiche.collecteur?.nom}}</td>
+        <td class="p-3">{{fiche.parrains}}</td>
+        <td class="p-3 d-flex">
+          <a class="btn btn-primary btn-sm rounded-pill" [routerLink]="">Modifier</a>&nbsp;
+          <a class="btn btn-info btn-sm rounded-pill" (click)="showFiche(fiche)">Voir</a>&nbsp; <!--  [routerLink]="['/fiches/show', fiche.id]"   -->
+          <a class="btn btn-danger btn-sm  rounded-pill">Supprimer</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+</div>
