@@ -1,11 +1,20 @@
 <div class="container mt-5">
 
-  <div class="d-flex justify-content-between mb-2">
-      <h1>Liste des parrains</h1>
-      <div>
+  <div class="row justify-content-between mb-2">
+      <h1 class="col-md-4">Liste des parrains</h1>
+
+      <div class="col-md-6">
+        <form class="d-flex" (ngSubmit)="searchParrains()">
+          <input class="form-control" type="search" placeholder="Rechercher ici..." name="searchTerm" aria-label="Search" [(ngModel)]="searchTerm">
+          <button class="btn btn-outline-success" type="submit">Chercher</button>
+        </form>
+      </div>
+
+      <div class="col-md-2 text-end">
         <a routerLink="/ajouterParrain" class="btn btn-success pb-1">+Nouveau</a>
       </div>
-  </div>
+
+    </div>
 
   <table class="table table-bordered table-striped  table-hover">
     <thead>
@@ -37,4 +46,17 @@
       </tr>
     </tbody>
   </table>
+
+  <div class="d-flex justify-content-end">
+    <nav aria-label="Page navigation ">
+      <ul class="pagination " style="cursor : pointer;">
+        <li class="page-item" (click)="goToPreviousPage()"><a class="page-link" >Précédent</a></li>
+        <li class="page-item" *ngFor="let pageNumber of range(page.totalPages)">
+          <a class="page-link" (click)="goToPage(pageNumber)">{{ pageNumber + 1 }}</a>
+        </li>
+        <li class="page-item" (click)="goToNextPage()"><a class="page-link" >Suivant</a></li>
+      </ul>
+    </nav>
+  </div>
+
 </div>

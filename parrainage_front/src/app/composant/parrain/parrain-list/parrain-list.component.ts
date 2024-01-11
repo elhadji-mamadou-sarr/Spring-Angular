@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Parrain } from 'src/app/models';
+import { Page, Parrain } from 'src/app/models';
 import { ParrainService } from 'src/app/services/parrain/parrain.service';
 
 @Component({
@@ -14,35 +14,33 @@ export class ParrainListComponent implements OnInit{
 
   }
 
+  currentPage = 0;
+  pageSize = 3;
+  totalItems = 0;
+
   parrains:Parrain[]=[];
+
+  page!:Page<Parrain>
+
+  searchTerm: string = ""
 
   errorMessage = "";
   successMessage = "";
 
   ngOnInit(): void {
-    this.parrainService.getParrains().subscribe(
-      {
-        next:(apps)=>{
-          this.parrains=apps;
-        },
-        error:(err)=>{
-          this.errorMessage="Erreur de requete";
-        },
-        complete:()=>{
-          this.successMessage ="Requete valide";
-        }
-      }
-    );
+    this.loadParrains();
   }
 
-  modifierParrain(parrain: Parrain): void {
-    this.router.navigate(['/modifier', parrain.id]);
+  range(n: number): number[] {
+    return Array.from({ length: n }, (_, i) => i);
   }
 
   loadParrains() {
-    this.parrainService.getParrains().subscribe(
+    this.parrainService.getParrains(this.currentPage, this.pageSize).subscribe(
       (data) => {
-        this.parrains = data;
+        this.page = data
+        this.totalItems = data.totalElements;
+        this.parrains = data.content;
       },
       (error) => {
         console.error(error);
@@ -50,11 +48,50 @@ export class ParrainListComponent implements OnInit{
     );
   }
 
+  goToPage(pageNumber: number) {
+    if (pageNumber >= 0 && pageNumber < this.page.totalPages) {
+      this.currentPage = pageNumber;
+      this.loadParrains();
+    }
+  }
+
+  goToPreviousPage() {
+    this.goToPage(this.currentPage - 1);
+  }
+
+  goToNextPage() {
+    this.goToPage(this.currentPage + 1);
+  }
+
+
+  modifierParrain(parrain: Parrain): void {
+    this.router.navigate(['/modifier', parrain.id]);
+  }
+
+
+  searchParrains() {
+
+    this.loadParrains();
+
+    this.parrainService.searchParrain(this.searchTerm, this.currentPage, this.pageSize).subscribe(
+      (data) => {
+        this.page = data;
+        this.totalItems = data.totalElements;
+        this.parrains = data.content;
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
+
+
+
+
   supprimerParrain(id: number) {
     this.parrainService.supprimerParrain(id).subscribe(
       () => {
         console.log('Parrain supprimé avec succès.');
-        // Actualisez la liste des parrains après la suppression
         this.loadParrains();
       },
       (error) => {

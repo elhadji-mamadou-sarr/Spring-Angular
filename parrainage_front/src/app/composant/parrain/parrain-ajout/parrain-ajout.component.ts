@@ -14,12 +14,12 @@ export class ParrainAjoutComponent implements OnInit {
     id: 0,
     nom: '',
     prenom: '',
-    numElecteur: 0,
-    numIdentite: 0,
+    numElecteur: 102245110,
+    numIdentite: 194382016006280086,
     localite: '',
     dateSignature: new Date()
   };
-
+  
   errorMessage = '';
   successMessage = '';
 

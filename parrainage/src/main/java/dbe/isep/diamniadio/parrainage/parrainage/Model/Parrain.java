@@ -1,4 +1,3 @@
-
 package dbe.isep.diamniadio.parrainage.parrainage.Model;
 
 import jakarta.persistence.*;

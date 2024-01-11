@@ -7,10 +7,14 @@ import { ParrainModifierComponent } from './composant/parrain/parrain-modifier/p
 import { FicheListComponent } from './composant/fiche/fiche-list/fiche-list.component';
 import { FicheShowComponent } from './composant/fiche/fiche-show/fiche-show.component';
 import { MenuComponent } from './composant/menu/menu.component';
+import { CandidatListComponent } from './composant/candidat/candidat-list/candidat-list.component';
+import { CandidatAjoutComponent } from './composant/candidat/candidat-ajout/candidat-ajout.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
 
-  { path : '', component:MenuComponent},
+  { path : '', component:LoginComponent},
+  { path : 'login', component:LoginComponent},
 
   { path : 'collecteurs', component:CollecteurListComponent},
 
@@ -20,6 +24,9 @@ const routes: Routes = [
 
   { path : 'fiches', component:FicheListComponent},
   { path : 'fiches/show/:id', component:FicheShowComponent},
+
+  { path : 'candidats', component:CandidatListComponent},
+  { path : 'ajouterCandidat', component:CandidatAjoutComponent},
 
 ];
 

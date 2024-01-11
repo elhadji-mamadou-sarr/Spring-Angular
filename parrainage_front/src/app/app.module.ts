@@ -16,6 +16,10 @@ import { FicheModifierComponent } from './composant/fiche/fiche-modifier/fiche-m
 import { CollecteurListComponent } from './composant/collecteur/collecteur-list/collecteur-list.component';
 import { CollecteurAjoutComponent } from './composant/collecteur/collecteur-ajout/collecteur-ajout.component';
 import { CollecteurModifierComponent } from './composant/collecteur/collecteur-modifier/collecteur-modifier.component';
+import { CandidatListComponent } from './composant/candidat/candidat-list/candidat-list.component';
+import { CandidatAjoutComponent } from './composant/candidat/candidat-ajout/candidat-ajout.component';
+import { CandidatModifierComponent } from './composant/candidat/candidat-modifier/candidat-modifier.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +35,10 @@ import { CollecteurModifierComponent } from './composant/collecteur/collecteur-m
     CollecteurListComponent,
     CollecteurAjoutComponent,
     CollecteurModifierComponent,
+    CandidatListComponent,
+    CandidatAjoutComponent,
+    CandidatModifierComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

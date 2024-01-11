@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { URL_API } from 'src/app/config';
-import { Parrain } from 'src/app/models';
+import { Page, Parrain } from 'src/app/models';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +13,20 @@ export class ParrainService {
 
   private apiUrl = `${URL_API}/parrainages`;
 
-  getParrains():Observable<Parrain[]>{
-    return this._httpClient.get<Parrain[]>(this.apiUrl);
+  getParrains(page: number, size: number): Observable<Page<Parrain>> {
+    const params = new HttpParams().set('page', page.toString()).set('size', size.toString());
+    return this._httpClient.get<Page<Parrain>>(`${this.apiUrl}/paged`, { params });
   }
+
+  searchParrain(searchTerm: string, page: number, size: number): Observable<any> {
+    const params = new HttpParams()
+      .set('searchTerm', searchTerm)
+      .set('page', page.toString())
+      .set('size', size.toString());
+
+    return this._httpClient.get<any>(`${this.apiUrl}/search`, { params });
+  }
+
 
   ajouterParrain(parrain: Parrain): Observable<Parrain> {
     return this._httpClient.post<Parrain>(this.apiUrl, parrain);

@@ -1,1 +1,39 @@
 <p>parrain-modifier works!</p>
+
+<div class="container mt-4">
+  <h2>Modifier un Parrain</h2>
+  <form (ngSubmit)="modifierParrain()" class="row g-3">
+
+    <div class="form-group mb-3 col-md-6">
+      <label for="nom">Nom:</label>
+      <input name="nom" type="text" class="form-control" id="nom" [(ngModel)]="parrain.nom" required>
+    </div>
+
+    <div class="form-group mb-3 col-md-6">
+      <label for="prenom">Prénom:</label>
+      <input name="prenom" type="text" class="form-control" id="prenom" [(ngModel)]="parrain.prenom" required>
+    </div>
+
+    <div class="form-group mb-3 col-md-6">
+      <label for="numElecteur">Numéro d'électeur:</label>
+      <input name="numElecteur" type="number" class="form-control" id="numElecteur" [(ngModel)]="parrain.numElecteur" required>
+    </div>
+
+    <div class="form-group mb-3 col-md-6">
+      <label for="numIdentite">Numéro d'identité:</label>
+      <input name="numIdentite" type="number" class="form-control" id="numIdentite" [(ngModel)]="parrain.numIdentite" required>
+    </div>
+
+    <div class="form-group mb-3 col-md-6">
+      <label for="localite">Localité:</label>
+      <input name="localite" type="text" class="form-control" id="localite" [(ngModel)]="parrain.localite" required>
+    </div>
+
+    <div class="form-group mb-3 col-md-6">
+      <label for="dateSignature">Date de signature:</label>
+      <input name="dateSignature" type="date" class="form-control" id="dateSignature" [(ngModel)]="parrain.dateSignature" required>
+    </div>
+    <input type="hidden" name="id" [(ngModel)]="parrain.id" >
+    <button type="submit" class="btn btn-primary">Modifier</button>
+  </form>
+</div>

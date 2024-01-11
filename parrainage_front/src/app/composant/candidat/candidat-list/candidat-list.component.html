@@ -1,0 +1,24 @@
+
+<div class="container mt-5">
+  <div class="m-5">
+    <h1>Liste des Collecteurs</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nom & prenom</th>
+          <th scope="col">Partie</th>
+          <th scope="col">action</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let a of candidats">
+          <th scope="row">{{ a.id }}</th>
+          <td>{{ a.nom }}</td>
+          <td>{{ a.party }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>

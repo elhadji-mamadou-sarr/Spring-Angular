@@ -1,3 +1,4 @@
+
 export interface Parrain{
   id : number,
   nom : string,
@@ -15,12 +16,14 @@ export interface Collecteur{
   numElecteur : number,
 }
 
+
 export interface Candidat{
   id : number,
   nom : string,
   party : string,
   fiches?: Fiche[]
 }
+
 
 export interface DelegueRegional{
   id : number,
@@ -39,7 +42,49 @@ export interface Fiche{
   parrains?: Parrain[] | null
 }
 
+
 export interface Region{
   id : number,
   nom : number,
+}
+
+export interface User{
+  id?: string,
+  username : string | null,
+  password : string | null,
+  roles ?: Role []
+}
+
+export interface Role{
+  id : string,
+  name : string,
+}
+
+export interface Page<T> {
+  content: T[];
+  pageable: {
+    pageNumber: number;
+    pageSize: number;
+    sort: {
+      empty: boolean;
+      sorted: boolean;
+      unsorted: boolean;
+    };
+    offset: number;
+    unpaged: boolean;
+    paged: boolean;
+  };
+  totalElements: number;
+  totalPages: number;
+  last: boolean;
+  size: number;
+  number: number;
+  sort: {
+    empty: boolean;
+    sorted: boolean;
+    unsorted: boolean;
+  };
+  numberOfElements: number;
+  first: boolean;
+  empty: boolean;
 }
